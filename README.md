@@ -2,7 +2,7 @@
 
 A pixel-faithful rebuild of the TechniDox home page from Figma, built with **Nuxt 3 + Vue 3 + TailwindCSS**.
 
-🔗 **Live:** _deploying…_ (Vercel link added once live)
+🔗 **Live:** https://venseed.vercel.app
 
 🎨 **Design:** [Figma — Website v0.0](https://www.figma.com/design/OHeO2r3Qp4kDJP36kjpAgC/Website-v0.0?node-id=57-1761)
 
