@@ -1,0 +1,28 @@
+# Nuxt
+.nuxt
+.output
+.data
+dist
+.vercel
+
+# deps
+node_modules
+
+# logs
+*.log
+npm-debug.log*
+
+# env
+.env
+.env.*
+!.env.example
+
+# os / editor
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# internal figma recon data (not part of deliverable)
+.figma

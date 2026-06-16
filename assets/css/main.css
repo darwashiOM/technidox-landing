@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans text-ink antialiased;
+  }
+}
+
+@layer components {
+  /* Centered content wrapper: 1680px content inside 120px gutters at 1920px,
+     scaling padding down on smaller screens. */
+  .wrap {
+    @apply mx-auto w-full max-w-[1920px] px-5 sm:px-8 lg:px-16 xl:px-20 2xl:px-[120px];
+  }
+
+  /* Standard vertical section rhythm: 120px on desktop. */
+  .section-y {
+    @apply py-16 sm:py-20 2xl:py-[120px];
+  }
+
+  /* Hero blueprint grid over a soft lavender wash. */
+  .hero-grid {
+    background-color: #f6f5fd;
+    background-image:
+      linear-gradient(to bottom, #e9e6ff 0%, #f4f3fc 45%, #ffffff 100%),
+      linear-gradient(to right, rgba(66, 56, 158, 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(66, 56, 158, 0.07) 1px, transparent 1px);
+    background-size:
+      100% 100%,
+      101px 98px,
+      101px 98px;
+  }
+}
