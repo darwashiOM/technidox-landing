@@ -31,7 +31,7 @@ const features = [
             <span class="text-accent">value</span>
           </h1>
           <p
-            class="max-w-[640px] font-display text-base font-semibold leading-snug text-body sm:text-xl 2xl:max-w-[1040px] 2xl:text-2xl"
+            class="max-w-[640px] font-display text-base font-semibold leading-snug text-body sm:text-xl 2xl:max-w-[1260px] 2xl:text-2xl 2xl:leading-[1.2]"
           >
             AI-native platform that generates documentation from code, scores
             quality in real-time, routes low confidence content to expert
