@@ -63,7 +63,10 @@ const cards = [
                 :key="f"
                 class="flex items-center gap-3 font-sans text-base font-normal text-muted 2xl:text-lg"
               >
-                <img src="/icons/check-sm.svg" alt="" class="h-5 w-5 shrink-0" />
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="shrink-0">
+                  <circle cx="10" cy="10" r="8.2" stroke="#24BD2E" stroke-width="1.6" />
+                  <path d="m6.4 10.2 2.3 2.3 4.9-5" stroke="#24BD2E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
                 {{ f }}
               </li>
             </ul>
