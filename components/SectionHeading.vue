@@ -3,11 +3,13 @@ defineProps({
   eyebrow: { type: String, default: '' },
   title: { type: String, required: true },
   subtitle: { type: String, default: '' },
+  // matches the Figma subtitle text-block width so it wraps to the same line count
+  subtitleMax: { type: String, default: '1140px' },
 })
 </script>
 
 <template>
-  <div class="mx-auto flex max-w-[1000px] flex-col items-center gap-4 text-center">
+  <div class="mx-auto flex max-w-[1200px] flex-col items-center gap-4 text-center">
     <p
       v-if="eyebrow"
       class="font-mont text-base font-semibold uppercase tracking-wide text-accent"
@@ -22,6 +24,7 @@ defineProps({
     <p
       v-if="subtitle"
       class="font-display text-lg font-semibold leading-snug text-body sm:text-xl 2xl:text-2xl"
+      :style="{ maxWidth: subtitleMax }"
     >
       {{ subtitle }}
     </p>

@@ -1,4 +1,5 @@
 <script setup>
+const { open } = useDemoModal()
 const columns = [
   { heading: 'Company', links: ['About Us', 'Careers', 'Blog', 'Partnerships'] },
   { heading: 'Resources', links: ['Help Center', 'Fees & Limits', 'System Status'] },
@@ -17,10 +18,11 @@ const socials = [
     <div class="bg-white pt-16 2xl:pt-[120px]">
       <div class="wrap">
         <div
+          v-reveal
           class="relative z-10 mx-auto -mb-28 max-w-[1255px] overflow-hidden rounded-3xl bg-indigo px-6 py-14 text-center sm:px-12 2xl:-mb-40 2xl:py-20"
         >
-          <!-- Decorative ring -->
-          <div class="pointer-events-none absolute -right-12 -top-20 h-72 w-72 rounded-full border-[44px] border-white/10" />
+          <!-- Decorative ring (clipped top-right) -->
+          <div class="pointer-events-none absolute -top-[130px] right-[80px] h-[281px] w-[281px] rounded-full border-[52px] border-[#FAFAFA]/20" />
 
           <div class="relative mx-auto flex max-w-[987px] flex-col items-center gap-7">
             <h2 class="font-sora text-3xl font-bold leading-tight text-[#FAFAFA] sm:text-4xl 2xl:text-5xl">
@@ -31,12 +33,13 @@ const socials = [
               onboarded developers faster, and built a community of
               contributors, all with measurable ROI.
             </p>
-            <a
-              href="#"
+            <button
+              type="button"
               class="rounded-xl bg-white px-6 py-3 font-sans text-lg font-semibold text-[#5E17EB] transition-transform hover:scale-[1.02]"
+              @click="open('demo')"
             >
               Book a Demo Today
-            </a>
+            </button>
           </div>
         </div>
       </div>

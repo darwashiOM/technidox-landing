@@ -21,7 +21,7 @@ const cards = [
   {
     dark: false,
     icon: '/icons/tm-platform.svg',
-    iconBg: 'bg-[#3F9220]/10',
+    iconBg: 'bg-[#24BD2E]/10',
     eyebrow: 'Platform Teams',
     title: 'Documentation that scales with your APIs',
     desc: 'Generate API reference docs, SDK guides, and integration playbooks automatically from your codebase. Keep them in sync with confidence scoring that flags drift before your customers notice.',
@@ -30,7 +30,7 @@ const cards = [
   {
     dark: true,
     icon: '/icons/tm-enterprise.svg',
-    iconBg: 'bg-white/10',
+    iconBg: 'bg-[#F2F1FF]',
     eyebrow: 'Enterprise Documentation',
     title: 'Documentation your auditors will approve',
     desc: 'Meet ISO, SOC2, and internal compliance requirements with automated audit trails, version control, and executive dashboards. Show documentation ROI to the C-suite with numbers that matter.',
@@ -43,17 +43,20 @@ const cards = [
   <section class="bg-white section-y">
     <div class="wrap flex flex-col items-center gap-16">
       <SectionHeading
+        v-reveal
         eyebrow="Use Cases"
         title="Built For Every Team That Ships Code."
         subtitle="Whether you're a solo OSS maintainer or a 10,000-person enterprise, TechniDox adapts to how your team creates and maintains documentation."
+        subtitle-max="900px"
       />
 
       <div class="grid w-full gap-6 lg:grid-cols-2">
         <article
-          v-for="card in cards"
+          v-for="(card, i) in cards"
           :key="card.title"
-          class="flex flex-col gap-5 rounded-2xl p-8"
-          :class="card.dark ? 'bg-indigo' : 'border border-line bg-white'"
+          v-reveal="i * 90"
+          class="flex flex-col gap-5 rounded-2xl p-8 shadow-[0_0_20px_10px_rgba(0,0,0,0.05)]"
+          :class="card.dark ? 'border border-white/10 bg-indigo' : 'border border-[#868585]/40 bg-white'"
         >
           <div class="flex items-center gap-4">
             <div
@@ -90,9 +93,9 @@ const cards = [
               class="flex items-center gap-3 font-sans text-base font-normal 2xl:text-lg"
               :class="card.dark ? 'text-[#EBEBEB]' : 'text-muted'"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="shrink-0">
-                <circle cx="12" cy="12" r="10" :fill="card.dark ? 'rgba(255,255,255,0.15)' : '#EEFAEC'" />
-                <path d="m8 12 2.5 2.5L16 9" :stroke="card.dark ? '#FFFFFF' : '#3F9220'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="shrink-0">
+                <circle cx="10" cy="10" r="8.2" :stroke="card.dark ? '#FFFFFF' : '#42389E'" stroke-width="1.6" />
+                <path d="m6.4 10.2 2.3 2.3 4.9-5" :stroke="card.dark ? '#FFFFFF' : '#42389E'" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
               {{ f }}
             </li>

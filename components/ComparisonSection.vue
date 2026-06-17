@@ -17,12 +17,13 @@ const rows = [
   <section class="bg-white section-y">
     <div class="wrap flex flex-col items-center gap-16">
       <SectionHeading
+        v-reveal
         eyebrow="Why TechniDox"
         title="Not Just Another Documentation Tool"
         subtitle="Traditional tools give you a place to write. TechniDox gives you a system that generates, scores, validates, and continuously improves documentation, automatically."
       />
 
-      <div class="w-full overflow-x-auto">
+      <div v-reveal="100" class="w-full overflow-x-auto">
         <table class="w-full min-w-[640px] border-separate border-spacing-0 overflow-hidden rounded-2xl border border-line">
           <thead>
             <tr class="bg-indigo text-white">

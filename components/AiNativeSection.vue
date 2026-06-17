@@ -31,15 +31,18 @@ const cards = [
   <section class="bg-white section-y">
     <div class="wrap flex flex-col items-center gap-16">
       <SectionHeading
+        v-reveal
         eyebrow="AI-Native Documentation Engine"
         title="AI-Native Documentation Engine"
         subtitle="Three revolutionary AI engines working together to transform how teams create, validate, and scale technical documentation."
+        subtitle-max="880px"
       />
 
       <div class="grid w-full gap-8 lg:grid-cols-3">
         <article
-          v-for="card in cards"
+          v-for="(card, i) in cards"
           :key="card.title"
+          v-reveal="i * 90"
           class="flex flex-col gap-8 rounded-2xl p-8"
           :class="card.tint"
         >
