@@ -1,4 +1,5 @@
 <script setup>
+const { open } = useDemoModal()
 const features = [
   'AI-generated docs in minutes',
   'Confidence scoring built in',
@@ -8,7 +9,7 @@ const features = [
 
 <template>
   <section class="hero-grid relative overflow-hidden">
-    <SiteHeader />
+    <SiteHeader overlay />
 
     <!-- Floating document decorations (desktop only) -->
     <div class="pointer-events-none absolute inset-0 mx-auto hidden max-w-[1920px] 2xl:block">
@@ -45,21 +46,23 @@ const features = [
         <div class="flex flex-col items-center gap-8">
         <!-- CTAs -->
         <div class="flex flex-col items-center gap-4 sm:flex-row">
-          <a
-            href="#pricing"
+          <button
+            type="button"
             class="inline-flex items-center gap-2 rounded-lg bg-indigo px-7 py-3.5 font-sans text-lg font-semibold text-white shadow-[0_12px_24px_-6px_rgba(66,56,158,0.45)] transition-all hover:bg-indigo/90 hover:shadow-[0_14px_28px_-6px_rgba(66,56,158,0.55)]"
+            @click="open('demo')"
           >
             Book a Demo
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <path d="m9 18 6-6-6-6" />
             </svg>
-          </a>
-          <a
-            href="#"
+          </button>
+          <button
+            type="button"
             class="rounded-lg border border-indigo bg-transparent px-7 py-3.5 font-sans text-lg font-semibold text-indigo transition-colors hover:bg-indigo/5"
+            @click="open('waitlist')"
           >
             Join Enterprise Waitlist
-          </a>
+          </button>
         </div>
 
         <!-- Feature checks -->

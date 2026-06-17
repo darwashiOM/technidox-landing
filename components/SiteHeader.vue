@@ -1,43 +1,54 @@
 <script setup>
 import { ref } from 'vue'
 
+defineProps({ overlay: { type: Boolean, default: false } })
 const open = ref(false)
+const route = useRoute()
+const { open: openModal } = useDemoModal()
 const links = [
-  { label: 'Home', href: '#', active: true },
-  { label: 'About Us', href: '#' },
-  { label: 'Docs', href: '#' },
-  { label: 'Pricing', href: '#pricing' },
+  { label: 'Home', to: '/' },
+  { label: 'About Us', to: '/about' },
+  { label: 'Docs', to: '/docs' },
+  { label: 'Pricing', to: '/pricing' },
 ]
+const isActive = (to) => (to === '/' ? route.path === '/' : route.path.startsWith(to))
 </script>
 
 <template>
-  <header class="absolute inset-x-0 top-0 z-30">
+  <header
+    class="z-30"
+    :class="[
+      overlay ? 'absolute inset-x-0 top-0' : 'relative bg-white',
+      open ? 'bg-white shadow-lg' : '',
+    ]"
+  >
     <div class="wrap flex items-center justify-between py-6 2xl:py-8">
       <!-- Logo -->
-      <a href="#" class="shrink-0" aria-label="TechniDox home">
+      <NuxtLink to="/" class="shrink-0" aria-label="TechniDox home" @click="open = false">
         <img src="/logo.png" alt="TechniDox" class="h-9 w-auto 2xl:h-10" />
-      </a>
+      </NuxtLink>
 
       <!-- Desktop nav -->
       <nav class="hidden items-center gap-8 lg:flex">
-        <a
+        <NuxtLink
           v-for="link in links"
           :key="link.label"
-          :href="link.href"
+          :to="link.to"
           class="font-display text-lg text-indigo transition-opacity hover:opacity-70 2xl:text-xl"
-          :class="link.active ? 'font-semibold' : 'font-normal'"
+          :class="isActive(link.to) ? 'font-semibold' : 'font-normal'"
         >
           {{ link.label }}
-        </a>
+        </NuxtLink>
       </nav>
 
       <div class="flex items-center gap-3">
-        <a
-          href="#pricing"
+        <button
+          type="button"
           class="hidden rounded-lg bg-indigo px-6 py-3 font-sans text-base font-semibold text-white transition-colors hover:bg-indigo/90 lg:inline-block 2xl:text-lg"
+          @click="openModal('start')"
         >
           Get Started
-        </a>
+        </button>
 
         <!-- Mobile menu toggle (interactive element) -->
         <button
@@ -91,23 +102,23 @@ const links = [
     >
       <div v-if="open" class="lg:hidden">
         <nav class="wrap flex flex-col gap-1 pb-4">
-          <a
+          <NuxtLink
             v-for="link in links"
             :key="link.label"
-            :href="link.href"
+            :to="link.to"
             class="rounded-lg px-3 py-3 font-display text-lg text-indigo hover:bg-tint-indigo"
-            :class="link.active ? 'font-semibold' : 'font-normal'"
+            :class="isActive(link.to) ? 'font-semibold' : 'font-normal'"
             @click="open = false"
           >
             {{ link.label }}
-          </a>
-          <a
-            href="#pricing"
+          </NuxtLink>
+          <button
+            type="button"
             class="mt-2 rounded-lg bg-indigo px-6 py-3 text-center font-sans text-base font-semibold text-white"
-            @click="open = false"
+            @click="open = false; openModal('start')"
           >
             Get Started
-          </a>
+          </button>
         </nav>
       </div>
     </transition>
