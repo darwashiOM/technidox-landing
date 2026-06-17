@@ -10,8 +10,8 @@ A pixel-faithful rebuild of the TechniDox design from Figma, built with **Nuxt 3
 
 ## Stack
 
-- [Nuxt 3](https://nuxt.com/) (Vue 3, SSR)
-- [TailwindCSS](https://tailwindcss.com/) via `@nuxtjs/tailwindcss`
+- [Nuxt 3](https://nuxt.com/) (Vue 3, SSR) — Nuxt `3.21`, Vue `3.5`
+- [TailwindCSS](https://tailwindcss.com/) (`3.4`) via `@nuxtjs/tailwindcss` (`6`)
 - Google Fonts: DM Sans, Inter, Sora, Montserrat (the four families used in the design)
 - No UI/component library — every section is hand-built
 
@@ -24,15 +24,33 @@ npm run build    # production build
 npm run preview  # preview the build locally
 ```
 
-Requires Node 18+.
+Node 18+ recommended (Nuxt 3 baseline).
+
+## Deployment
+
+The site is hosted as a **static build on GitHub Pages** at https://darwashiom.github.io/technidox-landing/, served from the `gh-pages` branch. There's no CI yet, so redeploys are manual:
+
+```bash
+# 1. Generate a static build under the subpath GitHub Pages serves from
+NUXT_APP_BASE_URL=/technidox-landing/ npx nuxt generate   # → .output/public
+
+# 2. Prefix the absolute public-asset paths (/icons/, /hero/, /logo.png,
+#    /price-tag.png, /enterprise-bg.png) with /technidox-landing/ in the
+#    generated HTML/JS/JSON, and add a .nojekyll file so _nuxt/ isn't
+#    ignored by Jekyll.
+
+# 3. Force-push the contents of .output/public to the gh-pages branch.
+```
+
+GitHub Pages then serves that branch at path `/`. Because the site lives under the `/technidox-landing/` subpath, the base-URL env var and the asset-prefix rewrite in step 2 are what keep links and assets resolving correctly.
 
 ## Pages
 
 The home page was the assignment scope; I also built the other three frames from the Figma file as real routes:
 
 - `/` — **Home**: hero, brand strip, AI-Native engine, community flow, enterprise ROI dashboard, comparison table, pricing CTA, team use-cases, footer
-- `/about` — **About**: TechniDox overview + the process-flow card
-- `/docs` — **Docs**: documentation guides, AI-powered features, and an interactive Quick Start stepper
+- `/about` — **About**: header, TechniDox overview + the process-flow card, footer
+- `/docs` — **Docs**: documentation guides, AI-powered features, and an interactive Quick Start carousel
 - `/pricing` — **Pricing**: tiered plans + comparison table
 
 ## Interactivity
@@ -64,11 +82,12 @@ Pixelay overlays and a full-page side-by-side live in [`/pixelay`](pixelay/), wi
 
 ## Responsiveness
 
-Mobile-first up to the 1920px design. Columns collapse to a single stack on phones, the nav becomes a toggle menu, the comparison table scrolls horizontally inside its card, and the hero's decorative documents hide below the desktop breakpoint. Verified at a 390px phone viewport with no horizontal overflow.
+Mobile-first up to the 1920px design. Columns collapse to a single stack on phones, the nav becomes a toggle menu, the comparison table scrolls horizontally inside its card, and the hero's decorative documents hide below the desktop breakpoint. Gutters scale down with the breakpoint (120px on the `2xl` desktop target, then 80 → 64 → 32 → 20px on smaller screens), so content keeps comfortable margins at every width and lands on the Figma 1680px column on a full 1920px frame. Verified at a 390px phone viewport with no horizontal overflow.
 
 ## Tradeoffs & what I'd do with more time
 
 - **Build a CMS.** Right now all copy, pricing, and card content is hardcoded in the components. With more time I would move it behind a CMS (or a content layer) so marketing could edit the site without touching code — this also fits the "Twig + CMS" direction mentioned in the brief.
+- **Automate the deploy.** The GitHub Pages redeploy is currently a manual generate → asset-prefix rewrite → force-push flow; I'd wrap it in an `npm run deploy` script or a GitHub Action.
 - **No mobile Figma frame** — the file only ships a desktop frame, so the mobile layout is my own responsive interpretation rather than a matched artboard.
 - **Icons as individual assets** — section glyphs are exported SVGs; I'd consolidate them into a single sprite or icon component.
 - **Backend wiring** — the demo/waitlist forms are front-end only; they'd connect to a CRM/email service in production.
