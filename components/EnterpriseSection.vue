@@ -21,7 +21,7 @@ const metrics = [
       <div
         v-reveal="100"
         class="w-full overflow-hidden rounded-2xl bg-cover bg-center p-6 sm:p-8"
-        style="background-color: #15112e; background-image: linear-gradient(150deg, rgba(66, 56, 158, 0.4) 36%, rgba(23, 20, 56, 0.2)), url('/enterprise-bg.png')"
+        style="background-color: #171438; background-image: linear-gradient(137deg, rgba(66, 56, 158, 0.4) 36%, rgba(23, 20, 56, 0.2)), url('/enterprise-bg.png')"
       >
         <!-- Card header -->
         <div class="mb-8 flex items-center justify-between gap-4 2xl:mb-14">
@@ -46,7 +46,7 @@ const metrics = [
           <div
             v-for="m in metrics"
             :key="m.label"
-            class="rounded-lg border border-[#868585]/50 bg-white/[0.04] p-5 2xl:p-7"
+            class="rounded-lg border border-[#aeadad]/75 bg-white/[0.05] p-5 2xl:p-7"
           >
             <div class="flex items-center gap-2.5">
               <img :src="m.icon" alt="" class="h-5 w-5" />
@@ -61,7 +61,7 @@ const metrics = [
 
         <!-- Bottom tiles -->
         <div class="mt-3 grid gap-3 lg:grid-cols-3 2xl:mt-4 2xl:gap-4">
-          <div class="rounded-lg border border-[#868585]/50 bg-white/[0.04] p-5 2xl:p-7">
+          <div class="rounded-lg border border-[#aeadad]/75 bg-white/[0.05] p-5 2xl:p-7">
             <div class="flex items-start justify-between">
               <p class="font-sans text-sm text-[#AEADAD] 2xl:text-lg">Documentation Health</p>
               <img src="/icons/ent-health.svg" alt="" class="h-5 w-5" />
@@ -77,7 +77,7 @@ const metrics = [
             </div>
           </div>
 
-          <div class="rounded-lg border border-[#868585]/50 bg-white/[0.04] p-5 2xl:p-7">
+          <div class="rounded-lg border border-[#aeadad]/75 bg-white/[0.05] p-5 2xl:p-7">
             <div class="flex items-start justify-between">
               <p class="font-sans text-sm text-[#AEADAD] 2xl:text-lg">Support Tickets</p>
               <img src="/icons/ent-support.svg" alt="" class="h-5 w-5" />
@@ -92,7 +92,7 @@ const metrics = [
             </p>
           </div>
 
-          <div class="rounded-lg border border-[#868585]/50 bg-white/[0.04] p-5 2xl:p-7">
+          <div class="rounded-lg border border-[#aeadad]/75 bg-white/[0.05] p-5 2xl:p-7">
             <div class="flex items-start justify-between">
               <p class="font-sans text-sm text-[#AEADAD] 2xl:text-lg">Active Contributors</p>
               <img src="/icons/ent-contributors.svg" alt="" class="h-5 w-5" />
