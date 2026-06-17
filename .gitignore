@@ -26,3 +26,6 @@ npm-debug.log*
 
 # internal figma recon data (not part of deliverable)
 .figma
+
+# browser-automation test artifacts
+.playwright-mcp

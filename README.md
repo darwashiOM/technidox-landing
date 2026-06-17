@@ -34,15 +34,13 @@ The site is hosted as a **static build on GitHub Pages** at https://darwashiom.g
 # 1. Generate a static build under the subpath GitHub Pages serves from
 NUXT_APP_BASE_URL=/technidox-landing/ npx nuxt generate   # → .output/public
 
-# 2. Prefix the absolute public-asset paths (/icons/, /hero/, /logo.png,
-#    /price-tag.png, /enterprise-bg.png) with /technidox-landing/ in the
-#    generated HTML/JS/JSON, and add a .nojekyll file so _nuxt/ isn't
-#    ignored by Jekyll.
+# 2. Add a .nojekyll file so the _nuxt/ dir isn't ignored by Jekyll
+touch .output/public/.nojekyll
 
-# 3. Force-push the contents of .output/public to the gh-pages branch.
+# 3. Force-push the contents of .output/public to the gh-pages branch
 ```
 
-GitHub Pages then serves that branch at path `/`. Because the site lives under the `/technidox-landing/` subpath, the base-URL env var and the asset-prefix rewrite in step 2 are what keep links and assets resolving correctly.
+GitHub Pages then serves that branch at path `/`. The `NUXT_APP_BASE_URL` env var makes Nuxt resolve the bundle, route links, and static `<img>` assets under the `/technidox-landing/` subpath; dynamic `:src` bindings and inline `url()` backgrounds go through the `$asset()` helper (`plugins/asset.js`) so they resolve under the subpath too.
 
 ## Pages
 
@@ -67,7 +65,7 @@ The home page was the assignment scope; I also built the other three frames from
 components/        # one component per section + shared SectionHeading, ProcessFlowCard, DemoModal
 pages/             # index, about, docs, pricing (file-based routing)
 composables/       # useDemoModal (shared modal state)
-plugins/           # reveal.js (v-reveal scroll directive)
+plugins/           # reveal.js (v-reveal scroll directive), asset.js ($asset baseURL helper)
 assets/css/        # tokens, container + grid helpers, reveal + price-swing animations
 tailwind.config.js # exact colors / fonts pulled from Figma
 public/            # logo, hero illustrations, price tag, dashboard texture, icons
@@ -87,7 +85,7 @@ Mobile-first up to the 1920px design. Columns collapse to a single stack on phon
 ## Tradeoffs & what I'd do with more time
 
 - **Build a CMS.** Right now all copy, pricing, and card content is hardcoded in the components. With more time I would move it behind a CMS (or a content layer) so marketing could edit the site without touching code — this also fits the "Twig + CMS" direction mentioned in the brief.
-- **Automate the deploy.** The GitHub Pages redeploy is currently a manual generate → asset-prefix rewrite → force-push flow; I'd wrap it in an `npm run deploy` script or a GitHub Action.
+- **Automate the deploy.** The GitHub Pages redeploy is currently a manual generate → `.nojekyll` → force-push flow; I'd wrap it in an `npm run deploy` script or a GitHub Action.
 - **No mobile Figma frame** — the file only ships a desktop frame, so the mobile layout is my own responsive interpretation rather than a matched artboard.
 - **Icons as individual assets** — section glyphs are exported SVGs; I'd consolidate them into a single sprite or icon component.
 - **Backend wiring** — the demo/waitlist forms are front-end only; they'd connect to a CRM/email service in production.
