@@ -21,7 +21,7 @@ const metrics = [
       <div
         v-reveal="100"
         class="w-full overflow-hidden rounded-2xl bg-cover bg-center p-6 sm:p-8"
-        style="background-color: #15112e; background-image: linear-gradient(150deg, rgba(56, 48, 132, 0.88) 0%, rgba(21, 17, 46, 0.94) 100%), url('/enterprise-bg.jpg')"
+        style="background-color: #15112e; background-image: linear-gradient(150deg, rgba(66, 56, 158, 0.4) 36%, rgba(23, 20, 56, 0.2)), url('/enterprise-bg.png')"
       >
         <!-- Card header -->
         <div class="mb-8 flex items-center justify-between gap-4 2xl:mb-14">
