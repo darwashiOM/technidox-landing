@@ -71,5 +71,4 @@ Mobile-first up to the 1920px design. Columns collapse to a single stack on phon
 - **Build a CMS.** Right now all copy, pricing, and card content is hardcoded in the components. With more time I would move it behind a CMS (or a content layer) so marketing could edit the site without touching code — this also fits the "Twig + CMS" direction mentioned in the brief.
 - **No mobile Figma frame** — the file only ships a desktop frame, so the mobile layout is my own responsive interpretation rather than a matched artboard.
 - **Icons as individual assets** — section glyphs are exported SVGs; I'd consolidate them into a single sprite or icon component.
-- **Scroll-animation states** — the Figma components include enter-animation variants; I built the final visible state and added a lightweight reveal rather than replicating every keyframe.
 - **Backend wiring** — the demo/waitlist forms are front-end only; they'd connect to a CRM/email service in production.
