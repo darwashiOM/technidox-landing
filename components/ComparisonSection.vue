@@ -24,7 +24,7 @@ const rows = [
       />
 
       <div v-reveal="100" class="w-full overflow-x-auto">
-        <table class="w-full min-w-[640px] border-separate border-spacing-0 overflow-hidden rounded-2xl border border-line">
+        <table class="w-full min-w-[640px] border-separate border-spacing-0 overflow-hidden rounded-2xl border border-[#aeadad]">
           <thead>
             <tr class="bg-indigo text-white">
               <th class="px-6 py-5 text-left font-display text-lg font-bold 2xl:text-[28px]">
@@ -39,15 +39,15 @@ const rows = [
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(row, i) in rows" :key="row.cap" :class="i < rows.length ? 'border-line' : ''">
-              <td class="border-t border-line px-6 py-4 font-sans text-base text-ink 2xl:text-lg">
+            <tr v-for="(row, i) in rows" :key="row.cap" :class="i < rows.length ? 'border-[#aeadad]' : ''">
+              <td class="border-t border-[#aeadad] px-6 py-4 font-sans text-base text-ink 2xl:text-lg">
                 {{ row.cap }}
               </td>
-              <td class="border-l border-t border-line px-6 py-4 text-center">
+              <td class="border-l border-t border-[#aeadad] px-6 py-4 text-center">
                 <img v-if="row.td" src="/icons/cmp-check.svg" alt="Yes" class="mx-auto h-6 w-6" />
                 <img v-else src="/icons/cmp-dash.svg" alt="No" class="mx-auto h-6 w-6" />
               </td>
-              <td class="border-l border-t border-line px-6 py-4 text-center">
+              <td class="border-l border-t border-[#aeadad] px-6 py-4 text-center">
                 <img v-if="row.trad" src="/icons/cmp-check.svg" alt="Yes" class="mx-auto h-6 w-6" />
                 <img v-else src="/icons/cmp-dash.svg" alt="No" class="mx-auto h-6 w-6" />
               </td>
