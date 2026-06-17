@@ -2,7 +2,7 @@
 
 A pixel-faithful rebuild of the TechniDox design from Figma, built with **Nuxt 3 + Vue 3 + TailwindCSS**.
 
-🔗 **Live:** https://venseed.vercel.app
+🔗 **Live:** https://darwashiom.github.io/technidox-landing/
 
 🎨 **Design:** [Figma — Website v0.0](https://www.figma.com/design/OHeO2r3Qp4kDJP36kjpAgC/Website-v0.0?node-id=57-1761)
 
