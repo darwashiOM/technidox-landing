@@ -19,7 +19,7 @@ const socials = [
       <div class="wrap">
         <div
           v-reveal
-          class="relative z-10 mx-auto -mb-28 max-w-[1255px] overflow-hidden rounded-3xl bg-indigo px-6 py-14 text-center sm:px-12 2xl:-mb-40 2xl:py-20"
+          class="relative z-10 mx-auto -mb-28 max-w-[1255px] overflow-hidden rounded-3xl bg-indigo px-6 py-16 text-center sm:px-12 2xl:-mb-48 2xl:py-[92px]"
         >
           <!-- Decorative ring (clipped top-right) -->
           <div class="pointer-events-none absolute -top-[130px] right-[80px] h-[281px] w-[281px] rounded-full border-[52px] border-[#FAFAFA]/20" />
@@ -46,7 +46,7 @@ const socials = [
     </div>
 
     <!-- Lavender columns region -->
-    <div class="bg-tint-lav pb-14 pt-40 2xl:pb-[80px] 2xl:pt-56">
+    <div class="bg-tint-lav pb-14 pt-40 2xl:pb-[80px] 2xl:pt-[330px]">
       <div class="wrap flex flex-col gap-12 lg:flex-row lg:justify-between lg:gap-8">
         <!-- Logo + blurb + socials -->
         <div class="flex max-w-sm flex-col gap-5">
