@@ -1,4 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+// baseURL the site is served from (e.g. "/technidox-landing/" on GitHub Pages,
+// "/" in dev). Head link hrefs aren't auto-prefixed, so build them off this.
+const base = process.env.NUXT_APP_BASE_URL || '/'
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-01-01',
   devtools: { enabled: false },
@@ -18,6 +23,9 @@ export default defineNuxtConfig({
         },
       ],
       link: [
+        { rel: 'icon', type: 'image/x-icon', href: `${base}favicon.ico`, sizes: 'any' },
+        { rel: 'icon', type: 'image/png', href: `${base}favicon.png` },
+        { rel: 'apple-touch-icon', href: `${base}apple-touch-icon.png` },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         {

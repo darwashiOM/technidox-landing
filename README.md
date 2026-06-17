@@ -68,7 +68,7 @@ composables/       # useDemoModal (shared modal state)
 plugins/           # reveal.js (v-reveal scroll directive), asset.js ($asset baseURL helper)
 assets/css/        # tokens, container + grid helpers, reveal + price-swing animations
 tailwind.config.js # exact colors / fonts pulled from Figma
-public/            # logo, hero illustrations, price tag, dashboard texture, icons
+public/            # logo, favicons, hero illustrations, price tag, dashboard texture, icons
 pixelay/           # overlays + fidelity notes
 ```
 
