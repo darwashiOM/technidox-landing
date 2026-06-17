@@ -45,7 +45,7 @@ const features = [
               class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
               :class="f.bg"
             >
-              <img :src="f.icon" alt="" class="h-6 w-6" />
+              <img :src="$asset(f.icon)" alt="" class="h-6 w-6" />
             </div>
             <div class="flex flex-col gap-1.5">
               <h3 class="font-display text-lg font-semibold text-ink 2xl:text-xl">

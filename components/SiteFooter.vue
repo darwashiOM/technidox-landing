@@ -63,7 +63,7 @@ const socials = [
               :aria-label="s.label"
               class="transition-opacity hover:opacity-70"
             >
-              <img :src="s.icon" :alt="s.label" class="h-8 w-8" />
+              <img :src="$asset(s.icon)" :alt="s.label" class="h-8 w-8" />
             </a>
           </div>
         </div>

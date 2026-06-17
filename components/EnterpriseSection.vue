@@ -21,7 +21,7 @@ const metrics = [
       <div
         v-reveal="100"
         class="w-full overflow-hidden rounded-2xl bg-cover bg-center p-6 sm:p-8"
-        style="background-color: #171438; background-image: linear-gradient(137deg, rgba(66, 56, 158, 0.4) 36%, rgba(23, 20, 56, 0.2)), url('/enterprise-bg.png')"
+        :style="`background-color: #171438; background-image: linear-gradient(137deg, rgba(66, 56, 158, 0.4) 36%, rgba(23, 20, 56, 0.2)), url('${$asset('/enterprise-bg.png')}')`"
       >
         <!-- Card header -->
         <div class="mb-8 flex items-center justify-between gap-4 2xl:mb-14">
@@ -49,7 +49,7 @@ const metrics = [
             class="rounded-lg border border-[#aeadad]/75 bg-white/[0.05] p-5 2xl:p-7"
           >
             <div class="flex items-center gap-2.5">
-              <img :src="m.icon" alt="" class="h-5 w-5" />
+              <img :src="$asset(m.icon)" alt="" class="h-5 w-5" />
               <p class="font-sans text-sm text-[#AEADAD] 2xl:text-lg">{{ m.label }}</p>
             </div>
             <p class="mt-3 font-display text-2xl font-bold text-white 2xl:text-[32px]">{{ m.value }}</p>

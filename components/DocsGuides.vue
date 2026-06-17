@@ -31,7 +31,7 @@ const cards = [
             class="flex h-14 w-14 items-center justify-center rounded-2xl"
             :class="card.dark ? 'bg-white/10' : 'bg-[#EAE9F5]'"
           >
-            <img :src="card.icon" alt="" class="h-6 w-6" :class="{ 'brightness-0 invert': card.dark }" />
+            <img :src="$asset(card.icon)" alt="" class="h-6 w-6" :class="{ 'brightness-0 invert': card.dark }" />
           </div>
 
           <h3

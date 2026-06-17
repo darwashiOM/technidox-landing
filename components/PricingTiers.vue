@@ -22,7 +22,7 @@ const tiers = [
 <template>
   <section
     class="section-y"
-    style="background-color: #15112e; background-image: linear-gradient(150deg, rgba(56, 48, 132, 0.9) 0%, rgba(18, 15, 40, 0.95) 100%), url('/enterprise-bg.png'); background-size: cover; background-position: center"
+    :style="`background-color: #15112e; background-image: linear-gradient(150deg, rgba(56, 48, 132, 0.9) 0%, rgba(18, 15, 40, 0.95) 100%), url('${$asset('/enterprise-bg.png')}'); background-size: cover; background-position: center`"
   >
     <div class="wrap flex flex-col items-center gap-12">
       <h2 v-reveal class="text-center font-display text-3xl font-bold text-white 2xl:text-[40px]">

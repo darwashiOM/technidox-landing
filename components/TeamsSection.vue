@@ -64,7 +64,7 @@ const cards = [
               class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl"
               :class="card.iconBg"
             >
-              <img :src="card.icon" alt="" class="h-6 w-6" />
+              <img :src="$asset(card.icon)" alt="" class="h-6 w-6" />
             </div>
             <div class="flex flex-col gap-1 pt-1">
               <span
