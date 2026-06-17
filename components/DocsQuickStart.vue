@@ -43,7 +43,7 @@ const next = () => (current.value = (current.value + 1) % steps.length)
       <div
         v-reveal
         class="overflow-hidden rounded-3xl px-5 py-10 sm:px-10 2xl:py-14"
-        style="background-color: #15112e; background-image: linear-gradient(150deg, rgba(56, 48, 132, 0.88) 0%, rgba(21, 17, 46, 0.94) 100%), url('/enterprise-bg.jpg'); background-size: cover; background-position: center"
+        style="background-color: #15112e; background-image: linear-gradient(150deg, rgba(56, 48, 132, 0.88) 0%, rgba(21, 17, 46, 0.94) 100%), url('/enterprise-bg.png'); background-size: cover; background-position: center"
       >
         <h2 class="text-center font-display text-3xl font-bold text-white 2xl:text-5xl">
           Quick Start Guide
