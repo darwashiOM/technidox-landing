@@ -37,7 +37,7 @@ const features = [
         subtitle="Democratize documentation contributions with gamified workflows, micro-tasks, mentorship matching, and peer validation systems that keep contributors engaged long-term."
       />
 
-      <div class="grid w-full items-center gap-12 lg:grid-cols-2 lg:gap-20 2xl:gap-[100px]">
+      <div class="grid w-full items-center gap-12 lg:grid-cols-[0.8fr_1fr] lg:gap-16 2xl:gap-24">
         <!-- Left: feature list -->
         <div v-reveal class="flex flex-col gap-8">
           <div v-for="f in features" :key="f.title" class="flex gap-4">

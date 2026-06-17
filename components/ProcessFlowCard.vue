@@ -8,33 +8,33 @@ const steps = [
 </script>
 
 <template>
-  <div class="rounded-2xl border border-line bg-white p-6 shadow-sm 2xl:p-8">
-    <div class="flex flex-col gap-4">
+  <div class="rounded-2xl border border-line bg-white p-6 shadow-[0_0_20px_10px_rgba(0,0,0,0.05)] 2xl:p-8">
+    <div class="flex flex-col gap-5 2xl:gap-6">
       <div
         v-for="step in steps"
         :key="step.title"
-        class="flex items-center gap-4 rounded-lg bg-tint-step px-5 py-4"
+        class="flex items-center gap-4 rounded-lg bg-tint-step px-5 py-5 2xl:px-6 2xl:py-6"
       >
         <!-- Left badge -->
         <div
           v-if="step.check"
-          class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#24BD2E]"
+          class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#24BD2E]"
         >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
             <path d="m6 12 4 4 8-8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </div>
         <div
           v-else
-          class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full font-sans text-sm font-bold"
+          class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-sans text-base font-bold"
           :class="[step.bg, step.color]"
         >
           {{ step.n }}
         </div>
 
         <!-- Middle -->
-        <div class="flex flex-1 flex-col">
-          <p class="font-display text-base font-semibold text-ink 2xl:text-lg">
+        <div class="flex flex-1 flex-col gap-0.5">
+          <p class="font-display text-lg font-semibold text-ink 2xl:text-xl">
             {{ step.title }}
           </p>
           <p class="font-sans text-sm font-normal text-muted 2xl:text-base">
@@ -51,8 +51,8 @@ const steps = [
         </span>
         <svg
           v-else-if="step.status === 'check'"
-          width="22"
-          height="22"
+          width="24"
+          height="24"
           viewBox="0 0 24 24"
           fill="none"
           class="shrink-0"
@@ -60,7 +60,7 @@ const steps = [
           <circle cx="12" cy="12" r="10" fill="#3F9220" fill-opacity="0.12" />
           <path d="m8 12 2.5 2.5L16 9" stroke="#3F9220" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
-        <img v-else src="/icons/cm-step-star.svg" alt="" class="h-5 w-5 shrink-0" />
+        <img v-else src="/icons/cm-step-star.svg" alt="" class="h-6 w-6 shrink-0" />
       </div>
     </div>
   </div>
