@@ -46,7 +46,7 @@ const cards = [
           v-for="(card, i) in cards"
           :key="card.title"
           v-reveal="i * 90"
-          class="flex flex-col gap-8 rounded-2xl p-8"
+          class="flex flex-col gap-8 rounded-2xl border border-[#aeadad] p-8 shadow-[0_0_20px_10px_rgba(0,0,0,0.05)]"
           :class="card.tint"
         >
           <div
@@ -60,10 +60,10 @@ const cards = [
             <h3 class="font-display text-2xl font-normal text-ink 2xl:text-[28px]">
               {{ card.title }}
             </h3>
-            <p class="font-sans text-base font-normal leading-relaxed text-muted 2xl:text-lg">
+            <p class="font-sans text-base font-normal leading-normal text-muted 2xl:text-lg">
               {{ card.desc }}
             </p>
-            <ul class="flex flex-col gap-3">
+            <ul class="flex flex-col gap-4">
               <li
                 v-for="f in card.features"
                 :key="f"
