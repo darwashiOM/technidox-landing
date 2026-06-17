@@ -23,6 +23,26 @@
     @apply py-16 sm:py-20 2xl:py-[120px];
   }
 
+  /* Scroll-reveal: hidden until in view, then fades + slides up. */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.6s ease-out,
+      transform 0.6s ease-out;
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Gently swinging price tag (hangs from its string). */
+  .price-swing {
+    transform-origin: top center;
+    animation: price-swing 3.6s ease-in-out infinite;
+  }
+
   /* Hero soft lavender → near-white wash (matches Figma hero fill). */
   .hero-grid {
     position: relative;
@@ -43,5 +63,27 @@
     background-size: 101px 98px;
     -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
     mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
+  }
+}
+
+@keyframes price-swing {
+  0%,
+  100% {
+    transform: rotate(-6deg);
+  }
+  50% {
+    transform: rotate(6deg);
+  }
+}
+
+/* Respect users who prefer less motion. */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .price-swing {
+    animation: none;
   }
 }
