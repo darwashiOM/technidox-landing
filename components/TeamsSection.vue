@@ -55,30 +55,33 @@ const cards = [
           v-for="(card, i) in cards"
           :key="card.title"
           v-reveal="i * 90"
-          class="flex flex-col gap-5 rounded-2xl p-8 shadow-[0_0_20px_10px_rgba(0,0,0,0.05)]"
-          :class="card.dark ? 'border border-white/10 bg-indigo' : 'border border-[#868585]/40 bg-white'"
+          class="flex flex-col gap-5 rounded-2xl p-7 shadow-[0_0_20px_10px_rgba(0,0,0,0.05)] 2xl:p-8"
+          :class="card.dark ? 'border border-white/10 bg-indigo' : 'border border-[#868585]/35 bg-white'"
         >
-          <div class="flex items-center gap-4">
+          <!-- header: icon + (eyebrow / title) stacked beside it -->
+          <div class="flex items-start gap-4">
             <div
               class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl"
               :class="card.iconBg"
             >
               <img :src="card.icon" alt="" class="h-6 w-6" />
             </div>
-            <span
-              class="font-sans text-xs font-semibold uppercase tracking-wide 2xl:text-sm"
-              :class="card.dark ? 'text-[#EBEBEB]' : 'text-ink'"
-            >
-              {{ card.eyebrow }}
-            </span>
+            <div class="flex flex-col gap-1 pt-1">
+              <span
+                class="font-sans text-xs font-semibold uppercase tracking-wide 2xl:text-sm"
+                :class="card.dark ? 'text-[#EBEBEB]' : 'text-ink'"
+              >
+                {{ card.eyebrow }}
+              </span>
+              <h3
+                class="font-display text-2xl font-normal leading-tight 2xl:text-[28px]"
+                :class="card.dark ? 'text-white' : 'text-ink'"
+              >
+                {{ card.title }}
+              </h3>
+            </div>
           </div>
 
-          <h3
-            class="font-display text-2xl font-normal 2xl:text-[28px]"
-            :class="card.dark ? 'text-white' : 'text-ink'"
-          >
-            {{ card.title }}
-          </h3>
           <p
             class="font-sans text-base font-normal leading-relaxed 2xl:text-lg"
             :class="card.dark ? 'text-[#EBEBEB]' : 'text-muted'"
@@ -86,7 +89,7 @@ const cards = [
             {{ card.desc }}
           </p>
 
-          <ul class="mt-1 flex flex-col gap-3">
+          <ul class="flex flex-col gap-3">
             <li
               v-for="f in card.features"
               :key="f"
